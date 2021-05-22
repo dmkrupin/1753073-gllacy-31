@@ -1,7 +1,7 @@
 # Личный проект «Глейси»
 
 * Студент: [Дима Крупин](https://up.htmlacademy.ru/htmlcss/31/user/1753073).
-* Наставник: `Неизвестно`.
+* Наставник: [Антон Попов](https://htmlacademy.ru/profile/joker).
 
 ---
 
