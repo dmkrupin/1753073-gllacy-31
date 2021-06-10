@@ -1,3 +1,69 @@
-body {
-  background-color: #9D8B84;
+/* подключаю шрифты */
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("../fonts/roboto.woff2") format("woff2"),
+    url("../fonts/roboto.woff") format("woff");
 }
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("../fonts/robotobold.woff") format("woff"),
+    url("../fonts/robotobold.woff2") format("woff2");
+    font-weight: bold;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("../fonts/robotomedium.woff2") format("woff2"),
+    url("../fonts/robotomedium.woff") format("woff");
+    font-weight: medium;
+}
+
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  width: 100vw;
+}
+.body__brown {
+  background-color: #9D8B84;
+  background-image: url("../img/promo-1.png"), url("../img/pic/glow.png");
+  background-size: 639px 582px, 716px;
+  background-position: 50% 83px, 50% 0;
+  background-repeat: no-repeat;
+}
+.body__gray {
+  background-color: #8996A6;
+  background-size: 639px 582px, 716px;
+  background-image: url("../img/promo-2.png"), url("../img/pic/glow.png");
+  background-position: 50% 83px, 50% 0;
+  background-repeat: no-repeat;
+}
+.body__green {
+  background-color: #849D8F;
+  background-size: 639px 582px, 716px;
+  background-image: url("../img/promo-3.png"), url("../img/pic/glow.png");
+  background-position: 50% 83px, 50% 0;
+  background-repeat: no-repeat;
+}
+
+.slider_button {
+  width: 21px;
+  height: 21px;
+
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.slider_button:hover {
+  background-color: rgba(255, 255, 255, 40%);
+}
+
+.slider_button:active {
+  background-color: white;
+}
+
