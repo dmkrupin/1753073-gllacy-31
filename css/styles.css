@@ -50,8 +50,8 @@ body {
 }
 
 .slider_button {
-  width: 21px;
-  height: 21px;
+  width: 19px;
+  height: 19px;
   background-color: transparent;
   border: 2px solid white;
   border-radius: 50%;
@@ -62,4 +62,14 @@ body {
 .slider_button:active {
   background-color: white;
 }
+
+/* выпадающее меню в навигации */
+nav ul li:first-child > div {display: none;}
+nav ul li:first-child:hover > div {display: block;}
+nav .search-button + div {display:none;}
+nav .search-button:hover + div {display:block;}
+nav .login-button + div {display:none;}
+nav .login-button:hover + div {display:block;}
+nav .cart + div {display:none;}
+nav .cart:hover + div {display: block;}
 
