@@ -3,7 +3,7 @@ let body = document.querySelector('body');
 let slider__brown = document.getElementById('slider__brown');
 let slider__gray = document.getElementById('slider__gray');
 let slider__green = document.getElementById('slider__green');
-let best_pairs = document.querySelector('.best-pairs');
+let best_pairs = document.querySelector('.best-pairs-header');
 
 // работа слайдера
 slider__brown.onclick = function() {
