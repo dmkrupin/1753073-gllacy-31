@@ -4,6 +4,10 @@ let sliderBrown = document.querySelector('.slider-brown');
 let sliderGray = document.querySelector('.slider-gray');
 let sliderGreen = document.querySelector('.slider-green');
 let bestPairs = document.querySelector('.best-pairs-header');
+let feedbackButton = document.querySelector('.feedback-button');
+let modalCloseButton = document.querySelector('.modal-close');
+let modalWindow = document.querySelector('.modal-feedback');
+
 
 // работа слайдера
 sliderBrown.onclick = function() {
@@ -27,4 +31,9 @@ sliderGreen.onclick = function() {
   bestPairs.textContent = 'Крем-брюле и пломбир с малиновым джемом';
 };
 
-
+feedbackButton.onclick = function() {
+  modalWindow.classList.add('modal-feedback-active');
+}
+modalCloseButton.onclick = function() {
+  modalWindow.classList.remove('modal-feedback-active');
+}
