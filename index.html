@@ -21,83 +21,58 @@
         <nav class="navigation">
           <a class="logo"><img src="img/pic/logo.svg" alt="Логотип сайта Глэйси"></a>
           <ul class="main-navigation-list">
-            <li class="main-navigation-item"><a href="catalog.html">Каталог</a></li>
+            <li class="main-navigation-item">
+              <a href="catalog.html">Каталог</a>
+              <ul class="submenu-list">
+                <li class="submenu-item"><a href="#">Новинки</a></li>
+                <li class="submenu-item"><a href="catalog.html">Сливочное</a></li>
+                <li class="submenu-item"><a href="#">Щербеты</a></li>
+                <li class="submenu-item"><a href="#">Фруктовый лед</a></li>
+                <li class="submenu-item"><a href="#">Мелорин</a></li>
+              </ul>
+            </li>
             <li class="main-navigation-item"><a href="#">Доставка и оплата</a></li>
             <li class="main-navigation-item"><a href="#">О компании</a></li>
           </ul>
           <ul class="user-navigation-list">
-            <li class="user-navigation-item">
+            <li class="user-navigation-item search">
               <a class="search-button" href="#">Поиск</a>
+              <div class="search-container" aria-label="Поиск">
+                <input type="text" name="search" class="input search-field" placeholder="Крем-брюле">
+              </div>
             </li>
-            <li class="user-navigation-item">
+            <li class="user-navigation-item login">
               <a class="login-button" href="#">Вход</a>
+              <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
+                <input type="email" name="login-email" placeholder="email@example.com" class="input">
+                <input type="password" name="login-password" placeholder="......" class="input">
+                <button type="submit" class="button">Войти</button>
+                <p class="login-form-options">
+                  <a href="#" class="link-white-bg login-form-options-link">Забыли пароль?</a><br>
+                  <a href="#" class="link-white-bg login-form-options-link">Новая регистрация</a>
+                </p>
+              </form>
             </li>
-            <li class="user-navigation-item">
+            <li class="user-navigation-item cart">
               <a class="cart-button" href="#">Корзина</a>
             </li>
           </ul>
         </nav>
-        <div class="catalog-submenu" aria-label="Выпадающее меню">
-          <ul class="submenu-list">
-            <li class="submenu-item"><a href="#">Новинки</a></li>
-            <li class="submenu-item"><a href="catalog.html">Сливочное</a></li>
-            <li class="submenu-item"><a href="catalog.html">Щербеты</a></li>
-            <li class="submenu-item"><a href="catalog.html">Фруктовый лед</a></li>
-            <li class="submenu-item"><a href="catalog.html">Мелорин</a></li>
-          </ul>
-        </div>
-        <div class="search-container" aria-label="Поиск">
-          <input type="text" name="search" placeholder="Крем-брюле">
-        </div>
-        <div class="login-container" aria-label="Вход для пользователя">
-          <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
-            <p><input type="email" name="login-email" placeholder="email@example.com"></p>
-            <p><input type="password" name="login-password" placeholder="......"></p>
-            <button type="submit" class="button">Войти</button>
-          </form>
-          <p><a href="#" class="login-form-options">Забыли пароль?</a></p>
-          <p><a href="#" class="login-form-options">Новая регистрация</a></p>
-        </div>
-        <div class="cart-container" aria-label="Корзина">
-          <table class="cart-layout">
-            <tr>
-              <td><button type="button" class="cart-delete">Удалить товар из корзины</button></td>
-              <td>Пломбир с апельсиновым джемом</td>
-              <td>1,5 кг х</td>
-              <td>200 руб.</td>
-              <td>300 руб.</td>
-            </tr>
-            <tr>
-              <td><button type="button" class="cart-delete">Удалить товар из корзины</button></td>
-              <td>Клубничный пломбир с присыпкой из белого шоколада</td>
-              <td>1,5 кг х</td>
-              <td>300 руб.</td>
-              <td>450 руб.</td>
-            </tr>
-            <tr>
-              <td colspan="5">Итого: <span>750 руб.</span></td>
-            </tr>
-          </table>
-          <button type="button" class="button">Оформить заказ</button>
-        </div>
         <p class="work-hours">с 10 до 20, ежедневно</p>
         <p class="tel"><a href="tel:+78124502525">8 812 450-25-25</a></p>
       </div>
-
     </header>
 
     <main aria-label="Магазин мороженого Глэйси" class="main-contents">
       <div class="wrapper">
         <section class="best-pairs" aria-label="Лучшие предложения">
           <h1 class="best-pairs-header">Крем-брюле и пломбир с малиновым джемом</h1>
-          <div class="best-pairs-footer">
-            <div class="slider">
-              <button type="button" class="slider_button slider-green"></button>
-              <button type="button" class="slider_button slider-gray"></button>
-              <button type="button" class="slider_button slider-brown"></button>
-            </div>
-            <a href="catalog.html" class="button">Давайте оба!</a>
+          <div class="slider-controls">
+            <button type="button" class="slider-button slider-green"></button>
+            <button type="button" class="slider-button slider-gray"></button>
+            <button type="button" class="slider-button slider-brown"></button>
           </div>
+            <a href="catalog.html" class="button">Давайте оба!</a>
         </section>
 
         <section class="two-column-layout" aria-label="Акции">
@@ -197,7 +172,8 @@
                   type="email"
                   placeholder="email@example.com"
                   name="useremail_mailing"
-                />
+                  class="input"
+                >
                 <button class="button" type="submit">Отправить</button>
               </form>
             </div>
@@ -213,6 +189,18 @@
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2103.388075117167!2d30.315476306569096!3d59.96805982956872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696315bc4e8ce61%3A0xe703c377f3424272!2sStudio%20212!5e0!3m2!1sru!2sru!4v1621724870469!5m2!1sru!2sru"
           >
           </iframe>
+          <div class="location-address">
+            <p>
+              Адрес главного офиса<br> и офлайн-магазина:<br>
+              <address>наб. Реки Карповки,<br> 5 лит П, Санкт-Петербург</address>
+            </p>
+            <p>
+            Для заказов по телефону:<br>
+            <a href="tel:+78005558628" class="online-order-tel">+7 800 555-86-28</a><br>
+            (с 10 до 20 ежедневно)
+            </p>
+            <button type="button" class="button feedback-button">Форма обратной связи</button>
+          </div>
         </section>
       </div>
     </main>
@@ -252,9 +240,9 @@
       <button type="button" class="modal-close">Закрыть окно</button>
       <h2>Мы обязательно вам ответим!</h2>
       <form action="https://echo.htmlacademy.ru" method="post" class="feedback-form">
-        <input type="text" name="feedback-name" placeholder="Имя Фамилия">
-        <input type="email" name="feedback-email" placeholder="email@example.com">
-        <textarea rows="6" name="feedback-message">В свободной форме</textarea>
+        <input type="text" name="feedback-name" placeholder="Имя Фамилия" class="input">
+        <input type="email" name="feedback-email" placeholder="email@example.com" class="input">
+        <textarea rows="6" name="feedback-message" placeholder="В свободной форме" class="textarea"></textarea>
         <button type="submit" class="button">Отправить</button>
       </form>
     </section>

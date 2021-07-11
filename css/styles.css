@@ -22,16 +22,11 @@
     url("../fonts/robotomedium.woff") format("woff");
     font-weight: medium;
 }
-
-* {
-  /* outline: 1px solid #000;
-  outline-offset: -1px; */
-}
-
 /* css custom */
 :root {
   --white: #fff;
   --dark: #323232;
+  --dark-30: rgba(32, 32, 32, 0.3);
   --nav-inset-border: #696969;
   --body-lightgreen: #849D8F;
   --nav-current: #D07058;
@@ -51,8 +46,14 @@
   --subscription-container: #F8F7F4;
   --socials-border: rgba(255, 255, 255, 0.5);
   --modal-close: #F8F7F4;
+  --input-border: #D3D3D2;
+  --input-border-focus: rgba(46, 136, 228, 0.52);
+  --link-white-bg-hover: #E84D37;
+  --link-white-bg-hover-underline: rgba(232,77,55,0.3);
+  --contact-address: #FEFEFE;
+  --cart-item-price: #C4C4C4;
+  --cart-underline: #CACAC7;
 }
-
 .page {
   height: 100%;
 }
@@ -98,17 +99,67 @@
   margin: 0 auto;
   padding: 0 10px;
 }
+.input {
+  height: 44px;
+  padding: 15px;
+  box-sizing: border-box;
+  background: var(--white);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+}
+.input:hover {
+  border-width: 2px;
+  box-sizing: border-box;
+}
+.input:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: var(--input-border-focus);
+}
+.link-white-bg,
+.link-white-bg:visited {
+  color: var(--dark);
+  text-decoration: underline;
+  text-decoration-color: var(--dark-30);
+}
+.link-white-bg:hover,
+.link-white-bg:active {
+  color: var(--link-white-bg-hover);
+  text-decoration: underline;
+  text-decoration-color: var(--link-white-bg-hover-underline);
+}
+
+.button,
+.button:visited {
+  display: inline-block;
+  padding: 9px 23px;
+  background: linear-gradient(180deg, #F26843 0%, #E74A35 100%);
+  border-width: 0px;
+  border-radius: 70px;
+  color: var(--white);
+  text-shadow: 0px 2px 5px var(--button-text-shadow);
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover {
+  background: linear-gradient(0deg, var(--white-transparent-20), var(--white-transparent-20)), linear-gradient(180deg, #F26843 0%, #E74A35 100%);
+  box-shadow: 0px 2px 2px var(--button-hover-shadow);
+}
+.button:active {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), linear-gradient(180deg, #F26843 0%, #E74A35 100%);
+  box-shadow: inset 0px 2px 2px var(--button-active-shadow);
+}
+
 .navigation {
   margin-top: 9px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 .logo {
   width: 154px;
   height: 64px;
   margin-right: 24px;
 }
-/* не понял, как спозиционировать навигацию по центру логотипа */
 .main-navigation-list {
   margin: 0;
   padding: 0;
@@ -121,8 +172,18 @@
   align-items: center;
 }
 .main-navigation-item {
-  margin-right: 32px;
+  margin-right: 8px;
   padding: 9px 13px 11px;
+  position: relative;
+}
+.main-navigation-item::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: transparent;
 }
 .main-navigation-item > a,
 .main-navigation-item > a:visited {
@@ -156,24 +217,25 @@
 }
 .user-navigation-item {
   margin-left: 10px;
+  position: relative;
 }
-.user-navigation-item:last-child {
-  margin-right: 18px;
+.user-navigation-item > a {
+  margin-bottom: 4px;
 }
-.user-navigation-item:last-child:hover {
-  margin-right: 0;
-}
-
 .search-container {
+  position: absolute;
+  top: 36px;
+  right: 0;
   display: none;
+  width: 341px;
+  height: 84px;
+  border-radius: 4px;
+  box-shadow: 0px 20px 20px var(--submenu-shadow);
+  background-color: var(--subscription-container);
 }
-.login-container {
-  display: none;
+.search:hover .search-container {
+  display: flex;
 }
-.cart-container {
-  display: none;
-}
-/* не понимаю, где размечать выпадающие блоки в меню */
 .search-button {
   display: block;
   width: 32px;
@@ -185,11 +247,37 @@
   background-color: var(--white-transparent-20);
   border-radius: 50%;
 }
-.search-button:hover{
+.search:hover .search-button {
   background-color: var(--white);
   background-image: url(../img/pic/icons/search-hover.svg);
 }
-.login-button{
+.search-field {
+  margin: auto;
+  width: 311px;
+}
+.login-form {
+  position: absolute;
+  z-index: 10;
+  top: 36px;
+  right: 0;
+  display: none;
+  width: 277px;
+  height: 214px;
+  padding: 20px 17px 22px 19px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0px 20px 20px var(--submenu-shadow);
+  background-color: var(--subscription-container);
+}
+.login:hover .login-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.login-form .input {
+  grid-column: 1 / -1;
+}
+.login-button {
   display: block;
   font-size: 0;
   width: 92px;
@@ -200,11 +288,31 @@
   background-repeat: no-repeat;
   border-radius: 20px;
 }
-.login-button:hover{
+.login:hover .login-button {
   background-color: var(--white);
   background-image: url(../img/pic/icons/login-hover.svg);
 }
-.cart-button{
+.login-form .button {
+  height: 44px;
+  padding: 15px 25px;
+  grid-column: 1 / 2;
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: 700;
+  text-shadow: none;
+}
+.login-form-options {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: -8px;
+}
+.login-form-options-link {
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 400;
+}
+
+.cart-button {
   display: block;
   font-size: 0;
   width: 100px;
@@ -215,38 +323,125 @@
   background-repeat: no-repeat;
   border-radius: 20px;
 }
-.cart-button:hover{
+.cart-button-full {
+  display: block;
+  font-size: 0;
   width: 118px;
-  background-image: url(../img/pic/icons/cart-full.svg);
+  height: 32px;
   background-color: var(--white);
+  background-image: url(../img/pic/icons/cart-full.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border-radius: 20px;
 }
-/* выпвдающее подменю */
-.catalog-submenu {
+
+.cart-full:hover .cart-container {
+  display: block;
+}
+.cart-container {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  top: 36px;
   display: none;
-  position: fixed;
+  width: 539px;
+  height: 242px;
+  padding: 21px;
+  background-color: var(--modal-close);
+  box-shadow: 0px 20px 20px var(--submenu-shadow);
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: right;
+}
+.cart-layout {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--dark);
+}
+.cart-layout td {
+  /* border: 1px solid black; */
+  padding-bottom: 26px;
+  /* vertical-align: baseline; */
+}
+.cart-delete {
+  display: inline-block;
+  margin-right: 9px;
+  font-size: 0;
+  width: 11px;
+  height: 11px;
+  background-color: transparent;
+  background-image: url('../img/pic/cart-delete.svg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+}
+.cart-item-1,
+.cart-item-2 {
+  background-image: url('../img/catalog-1.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 33px 33px;
+  padding-left: 46px;
+  width: 265px;
+  box-sizing: border-box;
+}
+.cart-item-2 {
+  background-image: url('../img/catalog-3.png');
+}
+.cart-item-weight {
+  padding-left: 31px;
+}
+.cart-item-price {
+  color: var(--cart-item-price);
+}
+.cart-item-total {
+  padding-left: 26px;
+}
+.cart-total {
+  border-top: 1px solid var(--cart-underline);
+  padding-top: 18px;
+  text-align: right;
+  font-size: 15px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.submenu-list {
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 10;
+  top: 43px;
+  left: -8px;
+  display: none;
   width: 143px;
-  height: 171px;
   background-color: var(--white);
   box-shadow: 0px 20px 20px var(--submenu-shadow);
   border-radius: 4px;
+  overflow: hidden;
 }
-.submenu-list {
-  list-style: none;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.main-navigation-item:first-child:hover .submenu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 .submenu-item {
-  display: flex;
-  align-items: center;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  padding-left: 21px;
+  padding: 7px 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .submenu-item:hover {
   background-color: var(--submenu-item-hover);
 }
-.submenu-item:active {
+.submenu-item:active,
+.submenu-item-current,
+.submenu-item-current:hover {
   background-color: var(--submenu-item-active);
 }
 .submenu-item > a {
@@ -260,6 +455,9 @@
   border-bottom: 1px solid var(--submenu-item-underline);
   padding-top: 13px;
   padding-bottom: 15px;
+}
+.submenu-item:last-child {
+  padding-bottom: 14px;
 }
 .submenu-item:first-child > a {
   font-weight: 700;
@@ -287,75 +485,50 @@
   font-style: normal;
   color: var(--white);
   text-decoration: none;
+  vertical-align: center;
 }
-/* не понимаю, почему текст ссылки вылезает за высоту параграфа */
-
 .best-pairs {
   min-height: 210px;
   margin-top: 275px;
   margin-bottom: 41px;
+  text-align: center;
+  position: relative;
 }
 .best-pairs-header {
   margin: 0 auto 27px;
   padding: 0;
   min-width: 648px;
   max-width: 672px;
-
   font-size: 60px;
   line-height: 60px;
-  text-align: center;
 }
-.best-pairs-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* не понимаю, как поставить кнопку по центру, а слайдер слева */
-.slider {
+.slider-controls {
   min-width: 79px;
   height: min-content;
-  display: flex;
-  justify-content: space-between;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
 }
-.slider_button {
+.slider-button {
   width: 21px;
   height: 21px;
   box-sizing: border-box;
   background-color: transparent;
   border: 2px solid var(--white);
   border-radius: 50%;
+  margin-right: 8px;
+  cursor: pointer;
 }
-.slider_button:hover {
+.slider-button:hover {
   background-color: var(--slider-button-hover);
 }
-.slider_button:active {
+.slider-button:active {
   background-color: var(--white);
 }
-.best-pairs-footer .button {
+.best-pairs .button {
+  display: inline-block;
   font-size: 32px;
   line-height: 44px;
-  justify-self: center;
-}
-
-
-.button,
-.button:visited {
-  display: block;
-  padding: 9px 23px;
-  background: linear-gradient(180deg, #F26843 0%, #E74A35 100%);
-  border-width: 0px;
-  border-radius: 70px;
-  color: var(--white);
-  text-shadow: 0px 2px 5px var(--button-text-shadow);
-  text-decoration: none;
-}
-.button:hover {
-  background: linear-gradient(0deg, var(--white-transparent-20), var(--white-transparent-20)), linear-gradient(180deg, #F26843 0%, #E74A35 100%);
-  box-shadow: 0px 2px 2px var(--button-hover-shadow);
-}
-.button:active {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), linear-gradient(180deg, #F26843 0%, #E74A35 100%);
-  box-shadow: inset 0px 2px 2px var(--button-active-shadow);
 }
 
 .two-column-layout {
@@ -442,19 +615,18 @@
   z-index: -1;
 }
 .product > p {
-  margin: 0;
+  margin-top: -80px;
+  margin-bottom: 0;
   padding: 0;
   font-size: 45px;
   line-height: 45px;
-  /* position: relative; */
-  /* top: calc(-1.5em); */
 }
-/* не понимаю, как поднять параграф с ценой поверх картинки */
 .product span {
   font-size: 30px;
   line-height: 35px;
 }
 .product > figcaption {
+  margin-top: 33px;
   margin-bottom: 11px;
   font-weight: 500;
   line-height: 22px;
@@ -464,7 +636,7 @@
 }
 
 .features {
-  padding: 20px 24px;
+  padding: 20px;
   margin-bottom: 40px;
 
   background-image: url(../img/pic/waffle-pattern.jpg);
@@ -547,15 +719,17 @@
   box-sizing: border-box;
   background-color: var(--subscription-container);
   border-radius: 16px;
+  display: flex;
+  flex-direction: column;
 }
 .subscription-container > p {
-  margin: 0 0 47px;
+  margin: 0;
   padding: 0;
   font-weight: 400;
   line-height: 22px;
 }
-/* почему высота параграфа у меня в браузере 66рх а в макете 55рх??? */
 .subscription-form {
+  margin-top: auto;
   display: flex;
   min-height: 44px;
 }
@@ -565,15 +739,63 @@
 }
 
 .location {
-  margin: 0 calc((1146px - 100vw) / 2);
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: min(calc((1146px - 100vw) / 2), 0px);
+  margin-right: min(calc((1146px - 100vw) / 2), 0px);
   padding: 0;
+  position: relative;
 }
 .location > iframe {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 0;
   border: 0;
+  vertical-align: center;
 }
-/* откуда три пикселя в контейнере с картой? */
+.location-address {
+  position: absolute;
+  top: 62px;
+  right: max(calc((100vw - 1146px) / 2), 0px);
+  width: 303px;
+  height: 306px;
+  box-sizing: border-box;
+  padding: 25px 32px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--contact-address);
+  border-radius: 16px;
+  color: var(--dark);
+}
+.location-address > p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.location-address > address {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  font-style: normal;
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+.online-order-tel {
+  margin-top: 11px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--dark);
+  text-decoration: none;
+}
+.feedback-button {
+  margin-top: auto;
+  padding: 13px 28px;
+}
 .page-footer > .wrapper {
   margin-top: 18px;
   margin-bottom: 25px;
@@ -588,12 +810,14 @@
   display: flex;
 }
 .socials-item {
+  margin-right: 12px;
   font-size: 0;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   border: 2px solid var(--socials-border);
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 .fb {
   background-image: url("../img/pic/fb-logo.svg");
@@ -618,7 +842,6 @@
   padding: 0 0 0 22px;
   list-style: none;
   height: min-content;
-
   display: grid;
   grid-template-columns: auto auto;
   column-gap: 32px;
@@ -630,7 +853,6 @@
   text-decoration: underline;
   text-decoration-color:var(--white-transparent-20);
 }
-/* почему высота текста ссылки и высота ее родителя li разная? */
 .info-item:first-child > a {
   font-weight: 700;
 }
@@ -640,7 +862,9 @@
 .logo-academy {
   margin-bottom: 16px;
 }
-/* откуда 3 пикселя между ссылкой-блоком и картинкой внутри этой ссылки? */
+.logo-academy > img {
+  vertical-align: center;
+}
 .copyright a {
   display: block;
   text-decoration: none;
@@ -664,9 +888,18 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -500%);
+  transition: 0.5s ease;
   background-color: var(--subscription-container);
   border-radius: 6px;
+}
+.modal-feedback-active {
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease;
 }
 .modal-feedback h2 {
   margin: 0 0 26px;
@@ -682,14 +915,23 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.feedback-form input {
-  flex-basis: 44px;
+.textarea {
   box-sizing: border-box;
+  border-radius: 4px;
+  padding: 15px;
+  box-sizing: border-box;
+  background: var(--white);
+  border: 1px solid var(--input-border);
   border-radius: 4px;
 }
-.feedback-form textarea {
+.textarea:hover {
+  border-width: 2px;
   box-sizing: border-box;
-  border-radius: 4px;
+}
+.textarea:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: var(--input-border-focus);
 }
 .feedback-form .button {
   align-self: flex-end;
@@ -699,6 +941,9 @@
   line-height: 24px;
 }
 .modal-close {
+  position: absolute;
+  top: 15px;
+  right: 16px;
   display: block;
   font-size: 0;
   width: 18px;
@@ -708,6 +953,7 @@
   background-repeat: no-repeat;
   border: 0;
   background-color: var(--modal-close);
+  cursor: pointer;
 }
 
 .main-navigation-item-current,
@@ -722,6 +968,7 @@
 .main-navigation-item-current:hover > a,
 .main-navigation-item-current > a:visited {
   color: var(--bacic-white);
+  text-decoration: none;
 }
 
 .breadcrumbs {
@@ -738,9 +985,16 @@
   font-weight: 400;
 }
 .breadcrumbs-item {
-  margin-right: 8px;
+  position: relative;
 }
-.breadcrumbs-item::after {
+.breadcrumbs-item:not(:last-child)::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-image: url('../img/pic/breadcrumbs.svg');
+  margin-left: 8px;
+  margin-right: 8px;
 }
 .breadcrumbs-item > a {
   text-decoration: underline;
@@ -751,7 +1005,7 @@
   text-decoration: none;
 }
 .catalog-page {
-  margin: 1px 0 0;
+  margin: 1px 0 29px;
   padding: 0;
   font-size: 35px;
   line-height: 41px;
@@ -760,72 +1014,191 @@
 .catalog-filter {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-right: 277px;
   margin-bottom: 40px;
 }
 .catalog-filter legend {
   font-size: 14px;
   line-height: 16px;
   font-weight: 500;
+  margin-left: 16px;
   margin-bottom: 7px;
 }
 .catalog-filter fieldset {
-  margin: 0 15px 0 0;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 14px;
   padding: 0;
   border: 0;
 }
 .catalog-filter label {
   font-weight: 500;
 }
-.sort > select {
+.sort-input {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: var(--white);
+  outline: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 16px;
+}
+.sort-box {
+  position: relative;
   height: 36px;
   width: 196px;
+  box-sizing: border-box;
   background-color: var(--white-transparent-20);
   color: var(--white);
-  border: 0px;
+  border: 0;
   border-radius: 20px;
+  display: flex;
 }
-.price > div {
+.sort-box::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  right: 14px;
+  width: 11px;
+  height: 10px;
+  background-image: url('../img/pic/form_controls/select-arrow.svg');
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.sort-box:hover .sort-input {
+  color: var(--dark);
+}
+.sort-box:hover::after {
+  background-image: url('../img/pic/form_controls/select-arrow-hover.svg');
+}
+.price-control {
   width: 218px;
   height: 36px;
   background-color: var(--white-transparent-20);
   border-radius: 20px;
+  position: relative;
+  display: flex;
+}
+.price-line {
+  border: 1px solid rgba(248, 247, 244, 0.5);
+  margin: auto;
+  width: 176px;
+  height: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+}
+.price-range-line {
+  border: 1px solid #F8F7F4;
+  width: 78px;
+  height: 0;
+}
+.point {
+  border-radius: 50%;
+  border: 8px solid var(--white);
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  background-color: #ABABAB;
+  cursor: pointer;
 }
 .fat > div {
   display: flex;
   align-items: center;
-  padding: 7px 14px;
+  gap: 19px;
+  padding: 9px 14px;
   background-color: var(--white-transparent-20);
   border-radius: 20px;
 }
-.fat input[type=radio] {
-  margin: 0 11px 0 19px;
+.fat label {
+  padding-left: 2em;
 }
-.fat input[type=radio]:first-child {
-  margin-left: 0;
+ .radio-input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.radio-box {
+  position: absolute;
+  margin-left: -2em;
+  margin-top: -0.1em;
+  width: 1.4em;
+  height: 1.4em;
+  background-image: url('../img/pic/form_controls/radio-off.svg');
+  background-repeat: no-repeat;
+}
+.radio-input:checked + .radio-box {
+  background-image: url('../img/pic/form_controls/radio-on.svg');
+}
+.radio-input:hover + .radio-box {
+  background-image: url('../img/pic/form_controls/radio-off-hover.svg');
+}
+.radio-input:checked:hover + .radio-box {
+  background-image: url('../img/pic/form_controls/radio-on-hover.svg');
 }
 .toppings > div {
-  padding: 8px 16px;
+  padding: 9px 16px;
   display: flex;
   align-items: center;
+  gap: 20px;
   background-color: var(--white-transparent-20);
   border-radius: 20px;
 }
-.toppings input[type=checkbox] {
-  margin: 0 14px 0 22px;
+.toppings label {
+  padding-left: 2em;
 }
-.toppings input[type=checkbox]:first-child {
-margin-left: 0;
+.check-input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
+.check-box {
+  position: absolute;
+  margin-left: -2em;
+  width: 1.5em;
+  height: 1.3em;
+  background-image: url('../img/pic/form_controls/checkbox-off.svg');
+  background-repeat: no-repeat;
+}
+.check-input:checked + .check-box {
+  background-image: url('../img/pic/form_controls/checkbox-on.svg');
+}
+.check-input:hover + .check-box {
+  background-image: url('../img/pic/form_controls/checkbox-off-hover.svg');
+}
+.check-input:checked:hover + .check-box {
+  background-image: url('../img/pic/form_controls/checkbox-on-hover.svg');
+}
+
+
 .filter-submit {
+  display: block;
   align-self: flex-end;
   background-color: var(--white-transparent-20);
   border-radius: 20px;
-  padding: 9px 29px 10px;
+  padding: 7px 29px;
   border: 2px solid var(--white);
+  box-sizing: border-box;
   color: var(--white);
   font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 14px;
+
 }
-/* как в макете текст с высотой строки в 18px занимает 13px?? */
 .filter-submit:hover,
 .filter-submit:focus {
   background-color: var(--white);
@@ -849,6 +1222,7 @@ margin-left: 0;
   margin: 0;
   padding: 0;
   display: flex;
+  position: relative;
   justify-content: flex-end;
   margin-bottom: 48px;
 }
@@ -857,7 +1231,32 @@ margin-left: 0;
   height: 26px;
   border-radius: 50%;
   display: flex;
+  position: relative;
+  cursor: pointer;
 }
+.pagination-item:first-child::before {
+  content: "";
+  width: 7px;
+  height: 12px;
+  position: absolute;
+  z-index: 1;
+  top: 7px;
+  left: -23px;
+  background-image: url('../img/pic/pagination-left.svg');
+  pointer-events: none;
+}
+.pagination-item:last-child::after {
+  content: "";
+  width: 7px;
+  height: 12px;
+  position: absolute;
+  z-index: 1;
+  top: 7px;
+  right: -24px;
+  background-image: url('../img/pic/pagination-right.svg');
+  pointer-events: none;
+}
+
 .pagination-item > a {
   margin: auto;
   font-weight: 500;
@@ -875,32 +1274,5 @@ margin-left: 0;
 .pagination-item:active > a,
 .pagination-current > a {
   color: var(--dark);
-}
-
-
-/* выпадающее меню в навигации */
-.main-navigation-item:first-child .catalog-submenu {
-  display: none;
-}
-.main-navigation-item:first-child:hover .catalog-submenu {
-  display: block;
-}
-.search-button + .search-container {
-  display: none;
-}
-.search-button:hover + .search-container {
-  display: block;
-}
-.login-button + .login-container {
-  display: none;
-}
-.login-button:hover + .login-container {
-  display: block;
-}
-.cart-button + .cart-container {
-  display: none;
-}
-.cart-button:hover + .cart-container {
-  display: block;
 }
 
