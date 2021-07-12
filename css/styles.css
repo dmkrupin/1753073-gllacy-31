@@ -677,9 +677,6 @@
   text-decoration: underline;
   text-decoration-color: var(--white-transparent-20);
 }
-.product-container > .button {
-}
-
 .features {
   padding: 20px;
   margin-bottom: 40px;
