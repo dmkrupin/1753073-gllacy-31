@@ -60,21 +60,23 @@
               <div class="cart-container" aria-label="Корзина">
                 <table class="cart-layout">
                   <tr>
-                    <td><button type="button" class="cart-delete">Удалить товар из корзины</button></td>
-                    <td class="cart-item-1">Пломбир с апельсиновым джемом</td>
+                    <td><a href="#" class="cart-delete">Удалить товар из корзины</a></td>
+                    <td class="cart-item-image"><img src="img/catalog-1.png" width="33" height="33"></td>
+                    <td class="cart-item">Пломбир с апельсиновым джемом</td>
                     <td class="cart-item-weight">1,5 кг х</td>
                     <td class="cart-item-price">200 руб.</td>
                     <td class="cart-item-total">300 руб.</td>
                   </tr>
                   <tr>
-                    <td><button type="button" class="cart-delete">Удалить товар из корзины</button></td>
-                    <td class="cart-item-2">Клубничный пломбир с присыпкой из белого шоколада</td>
+                    <td><a href="#" class="cart-delete">Удалить товар из корзины</a></td>
+                    <td class="cart-item-image"><img src="img/catalog-3.png" width="33" height="33"></td>
+                    <td class="cart-item">Клубничный пломбир с присыпкой из белого шоколада</td>
                     <td class="cart-item-weight">1,5 кг х</td>
                     <td class="cart-item-price">300 руб.</td>
                     <td class="cart-item-total">450 руб.</td>
                   </tr>
                   <tr>
-                    <td colspan="5" class="cart-total">Итого: <span>750 руб.</span></td>
+                    <td colspan="6" class="cart-total">Итого: <span>750 руб.</span></td>
                   </tr>
                 </table>
                 <button type="button" class="button">Оформить заказ</button>
@@ -109,12 +111,12 @@
                 </div>
             </fieldset>
             <fieldset class="price">
-                <legend>Цена: от 100 до 500 ₽</legend>
+                <legend>Цена: 100₽ - 500 ₽</legend>
                 <div class="price-control">
                   <div class="price-line">
-                    <div class="point"></div>
+                    <div class="point point-1"></div>
                     <div class="price-range-line"></div>
-                    <div class="point"></div>
+                    <div class="point point-2"></div>
                   </div>
                 </div>
             </fieldset>
@@ -302,11 +304,13 @@
         </section>
 
         <ul class="pagination" aria-label="Пагинация">
-          <li class="pagination-item pagination-current"><a title="Вы на первой странице каталога">1</a></li>
-          <li class="pagination-item"><a href="#">2</a></li>
-          <li class="pagination-item"><a href="#">3</a></li>
-          <li class="pagination-item"><a href="#">4</a></li>
-          <li class="pagination-item"><a href="#">5</a></li>
+          <li><a class="pagination-item" title="Вы на первой странице каталога"></a></li>
+          <li><a class="pagination-item pagination-current" title="Вы на первой странице каталога">1</a></li>
+          <li><a class="pagination-item" href="#">2</a></li>
+          <li><a class="pagination-item" href="#">3</a></li>
+          <li><a class="pagination-item" href="#">4</a></li>
+          <li><a class="pagination-item" href="#">5</a></li>
+          <li><a class="pagination-item" href="#"></a></li>
         </ul>
       </div>
     </main>
