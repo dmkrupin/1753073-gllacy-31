@@ -400,6 +400,7 @@
 }
 .cart-delete {
   display: inline-block;
+  vertical-align: middle;
   margin-right: 9px;
   font-size: 0;
   width: 11px;
@@ -1074,6 +1075,7 @@
 .breadcrumbs-item:not(:last-child)::after {
   content: '';
   display: inline-block;
+  vertical-align: middle;
   width: 6px;
   height: 6px;
   background-image: url('../img/pic/breadcrumbs.svg');
