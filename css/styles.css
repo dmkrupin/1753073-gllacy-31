@@ -638,6 +638,7 @@
 }
 .product-container:hover .button {
   display: block;
+  justify-self: flex-end;
 }
 .hit {
   background-image: url(../img/pic/hit-sticker.png);
@@ -648,6 +649,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 .product > img {
   width: 267px;
@@ -674,6 +676,8 @@
   text-align: center;
   text-decoration: underline;
   text-decoration-color: var(--white-transparent-20);
+}
+.product-container > .button {
 }
 
 .features {
@@ -1320,6 +1324,8 @@
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
   margin-bottom: 48px;
 }
 .pagination-item {
