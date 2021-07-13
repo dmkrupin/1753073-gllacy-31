@@ -803,6 +803,7 @@
   padding: 0;
   border: 0;
   vertical-align: center;
+  width: 100%;
 }
 .location-address {
   position: absolute;
