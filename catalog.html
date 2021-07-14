@@ -40,15 +40,19 @@
             <li class="user-navigation-item search">
               <a class="search-button" href="#">Поиск</a>
               <div class="search-container" aria-label="Поиск">
-                <label><input type="text" name="search" class="input search-field" placeholder="Крем-брюле"></label>
+                <form class="search-field">
+                  <label>
+                    <input type="text" name="search" class="input" placeholder="Крем-брюле" aria-label="Поиск по сайту">
+                  </label>
+                </form>
               </div>
             </li>
             <li class="user-navigation-item login">
               <a class="login-button" href="#">Вход</a>
-              <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
-                <label><input type="email" name="login-email" placeholder="email@example.com" class="input"></label>
-                <label><input type="password" name="login-password" placeholder="......" class="input"></label>
-                <button type="submit" class="button">Войти</button>
+              <form class="login-form" action="https://echo.htmlacademy.ru" method="post" aria-label="Форма логина">
+                <input type="email" name="login-email" placeholder="email@example.com" class="input" aria-label="Поле ввода логина">
+                <input type="password" name="login-password" placeholder="......" class="input" aria-label="Поле ввода пароля">
+              <button type="submit" class="button">Войти</button>
                 <p class="login-form-options">
                   <a href="#" class="link-white-bg login-form-options-link">Забыли пароль?</a><br>
                   <a href="#" class="link-white-bg login-form-options-link">Новая регистрация</a>
@@ -98,19 +102,19 @@
         </ul>
         <h1 class="catalog-page">Сливочное мороженое</h1>
         <section aria-label="Управление каталогом">
-          <form class="catalog-filter" action="https://echo.htmlacademy.ru" method="get">
-            <fieldset class="sort">
+          <form class="catalog-filter" action="https://echo.htmlacademy.ru" method="get" aria-label="Фильтры каталога">
+            <fieldset class="sort" aria-label="Сортировка">
                 <legend>Сортировка:</legend>
                 <div class="sort-box">
-                  <label><select name="sorttype" class="sort-input">
+                  <select name="sorttype" class="sort-input">
                     <option value="popular">по популярности</option>
                     <option value="cheap">сначала недорогие</option>
                     <option value="pricey">сначала дорогие</option>
                     <option value="fat">по жирности</option>
-                  </select></label>
+                  </select>
                 </div>
             </fieldset>
-            <fieldset class="price">
+            <fieldset class="price" aria-label="Фильтр по цене">
                 <legend>Цена: 100 ₽ - 500 ₽</legend>
                 <div class="price-control">
                   <div class="price-line">
@@ -120,7 +124,7 @@
                   </div>
                 </div>
             </fieldset>
-            <fieldset class="fat">
+            <fieldset class="fat" aria-label="Фильтр по жирности">
                 <legend>Жирность:</legend>
                 <div>
                   <label for="0_percent_fat">
@@ -145,7 +149,7 @@
                   </label>
                 </div>
             </fieldset>
-            <fieldset class="toppings">
+            <fieldset class="toppings" aria-label="Фильтр по наполнителям">
                 <legend>Наполнители:</legend>
                 <div>
                   <label for="chocolate_topping">

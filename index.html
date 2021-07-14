@@ -38,14 +38,18 @@
             <li class="user-navigation-item search">
               <a class="search-button" href="#">Поиск</a>
               <div class="search-container" aria-label="Поиск">
-                <label><input type="text" name="search" class="input search-field" placeholder="Крем-брюле"></label>
+                <form class="search-field">
+                  <label>
+                    <input type="text" name="search" class="input" placeholder="Крем-брюле" aria-label="Поиск по сайту">
+                  </label>
+                </form>
               </div>
             </li>
             <li class="user-navigation-item login">
               <a class="login-button" href="#">Вход</a>
-              <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
-                <label><input type="email" name="login-email" placeholder="email@example.com" class="input"></label>
-                <label><input type="password" name="login-password" placeholder="......" class="input"></label>
+              <form class="login-form" action="https://echo.htmlacademy.ru" method="post" aria-label="Форма логина">
+                  <input type="email" name="login-email" placeholder="email@example.com" class="input" aria-label="Поле ввода логина">
+                  <input type="password" name="login-password" placeholder="......" class="input" aria-label="Поле ввода пароля">
                 <button type="submit" class="button">Войти</button>
                 <p class="login-form-options">
                   <a href="#" class="link-white-bg login-form-options-link">Забыли пароль?</a><br>
@@ -167,13 +171,14 @@
                 самого вкусного, что у нас происходит. Обещаем не спамить и не слать
                 всякой ненужной ерунды. Честно =)
               </p>
-              <form action="https://echo.htmlacademy.ru" method="POST" class="subscription-form">
-                <label><input
+              <form action="https://echo.htmlacademy.ru" method="POST" class="subscription-form" aria-label="Форма подписки на рассылку">
+                <input
                   type="email"
                   placeholder="email@example.com"
                   name="useremail_mailing"
                   class="input"
-                ></label>
+                  aria-label="Поле для ввода электронной почты для подписки на рассылку"
+                >
                 <button class="button" type="submit">Отправить</button>
               </form>
             </div>
@@ -238,10 +243,10 @@
     <section aria-label="Форма обратной связи" class="modal-feedback">
       <button type="button" class="modal-close">Закрыть окно</button>
       <h2>Мы обязательно вам ответим!</h2>
-      <form action="https://echo.htmlacademy.ru" method="post" class="feedback-form">
-        <label><input type="text" name="feedback-name" placeholder="Имя Фамилия" class="input"></label>
-        <label><input type="email" name="feedback-email" placeholder="email@example.com" class="input"></label>
-        <label><textarea rows="6" name="feedback-message" placeholder="В свободной форме" class="textarea"></textarea></label>
+      <form action="https://echo.htmlacademy.ru" method="post" class="feedback-form" aria-label="Форма обратной связи">
+        <input type="text" name="feedback-name" placeholder="Имя Фамилия" class="input" aria-label="Поле для имени отправителя обратной связи">
+        <input type="email" name="feedback-email" placeholder="email@example.com" class="input" aria-label="Поле для электронной почты отправителя обратной связи">
+        <textarea rows="6" name="feedback-message" placeholder="В свободной форме" class="textarea" aria-label="Содержание сообщения обратной связи"></textarea>
         <button type="submit" class="button">Отправить</button>
       </form>
     </section>
