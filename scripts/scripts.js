@@ -1,4 +1,4 @@
-// переменные  слайдера
+// переменные
 let body = document.querySelector('body');
 let sliderBrown = document.querySelector('.slider-brown');
 let sliderGray = document.querySelector('.slider-gray');
@@ -7,7 +7,22 @@ let bestPairs = document.querySelector('.best-pairs-header');
 let feedbackButton = document.querySelector('.feedback-button');
 let modalCloseButton = document.querySelector('.modal-close');
 let modalWindow = document.querySelector('.modal-feedback');
+let feedbackForm = modalWindow.querySelector('.feedback-form');
+let feedbackName = modalWindow.querySelector('.feedback-name');
+let feedbackEmail = modalWindow.querySelector('.feedback-email');
+let feedbackMessage = modalWindow.querySelector('.feedback-message');
 
+
+// модальное окно
+feedbackButton.onclick = function() {
+  modalWindow.classList.add('modal-feedback-active');
+  body.classList.add('modal-bg');
+}
+modalCloseButton.onclick = function() {
+  modalWindow.classList.remove('modal-feedback-active');
+  body.classList.remove('modal-bg');
+  modalWindow.classList.remove('modal-error');
+}
 
 // работа слайдера
 sliderBrown.onclick = function() {
@@ -40,11 +55,12 @@ sliderGreen.onclick = function() {
   bestPairs.textContent = 'Крем-брюле и пломбир с малиновым джемом';
 };
 
-feedbackButton.onclick = function() {
-  modalWindow.classList.add('modal-feedback-active');
-  body.classList.add('modal-bg');
-}
-modalCloseButton.onclick = function() {
-  modalWindow.classList.remove('modal-feedback-active');
-  body.classList.remove('modal-bg');
-}
+// валидация формы
+feedbackForm.addEventListener("submit", function (evt) {
+  if (!feedbackEmail.value || !feedbackMessage.value) {
+    modalWindow.classList.remove('modal-error');
+    modalWindow.offsetWidth = modalWindow.offsetWidth;
+    modalWindow.classList.add('modal-error');
+    evt.preventDefault();
+  }
+});
