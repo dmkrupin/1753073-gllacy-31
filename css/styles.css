@@ -204,7 +204,7 @@
   align-items: center;
 }
 .main-navigation-item {
-  margin-right: 6px;
+  margin-right: 4px;
   padding: 7px 14px;
   position: relative;
 }
@@ -1320,7 +1320,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 23px 26px;
-  margin-bottom: 52px;
+  margin-bottom: 64px;
 }
 
 .pagination {
@@ -1330,11 +1330,11 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 .pagination-item {
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 14px;
+  margin-right: -9px;
   display: block;
   width: 26px;
   height: 26px;
