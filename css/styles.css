@@ -1255,6 +1255,13 @@
 .radio-input:checked:hover + .radio-box {
   background-image: url('../img/pic/form_controls/radio-on-hover.svg');
 }
+.radio-input:disabled + .radio-box {
+  background-image: url('../img/pic/form_controls/radio-off-disabled.svg');
+}
+.radio-input:checked:disabled + .radio-box {
+  background-image: url('../img/pic/form_controls/radio-on-disabled.svg');
+}
+
 .toppings > div {
   padding: 9px 16px;
   display: flex;
@@ -1288,6 +1295,12 @@
 }
 .check-input:checked:hover + .check-box {
   background-image: url('../img/pic/form_controls/checkbox-on-hover.svg');
+}
+.check-input:disabled + .check-box {
+  background-image: url('../img/pic/form_controls/checkbox-off-disabled.svg');
+}
+.check-input:checked:disabled + .check-box {
+  background-image: url('../img/pic/form_controls/checkbox-on-disabled.svg');
 }
 
 
