@@ -13,7 +13,7 @@
 
       <!-- styles -->
       <link rel="stylesheet"  href="css/normalize.css">
-      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/styles-minified.css">
 
     <title>HTML Academy: Глейси</title>
   </head>
@@ -40,15 +40,17 @@
             <li class="user-navigation-item search">
               <a class="search-button" href="#">Поиск</a>
               <div class="search-container" aria-label="Поиск">
-                <label><input type="text" name="search" class="input search-field" placeholder="Крем-брюле"></label>
+                <form class="search-field" aria-label="Форма поиска">
+                  <input type="text" name="search" class="input" placeholder="Крем-брюле" aria-label="Поле поиска по сайту">
+                </form>
               </div>
             </li>
             <li class="user-navigation-item login">
               <a class="login-button" href="#">Вход</a>
-              <form class="login-form" action="https://echo.htmlacademy.ru" method="post">
-                <label><input type="email" name="login-email" placeholder="email@example.com" class="input"></label>
-                <label><input type="password" name="login-password" placeholder="......" class="input"></label>
-                <button type="submit" class="button">Войти</button>
+              <form class="login-form" action="https://echo.htmlacademy.ru" method="post" aria-label="Форма логина">
+                <input type="email" name="login-email" placeholder="email@example.com" class="input" aria-label="Поле ввода логина">
+                <input type="password" name="login-password" placeholder="......" class="input" aria-label="Поле ввода пароля">
+              <button type="submit" class="button">Войти</button>
                 <p class="login-form-options">
                   <a href="#" class="link-white-bg login-form-options-link">Забыли пароль?</a><br>
                   <a href="#" class="link-white-bg login-form-options-link">Новая регистрация</a>
@@ -98,19 +100,19 @@
         </ul>
         <h1 class="catalog-page">Сливочное мороженое</h1>
         <section aria-label="Управление каталогом">
-          <form class="catalog-filter" action="https://echo.htmlacademy.ru" method="get">
-            <fieldset class="sort">
+          <form class="catalog-filter" action="https://echo.htmlacademy.ru" method="get" aria-label="Фильтры каталога">
+            <fieldset class="sort" aria-label="Сортировка каталога">
                 <legend>Сортировка:</legend>
                 <div class="sort-box">
-                  <label><select name="sorttype" class="sort-input">
+                  <select name="sorttype" class="sort-input" aria-label="Список сортировки каталога">
                     <option value="popular">по популярности</option>
                     <option value="cheap">сначала недорогие</option>
                     <option value="pricey">сначала дорогие</option>
                     <option value="fat">по жирности</option>
-                  </select></label>
+                  </select>
                 </div>
             </fieldset>
-            <fieldset class="price">
+            <fieldset class="price" aria-label="Фильтр по цене">
                 <legend>Цена: 100 ₽ - 500 ₽</legend>
                 <div class="price-control">
                   <div class="price-line">
@@ -120,7 +122,7 @@
                   </div>
                 </div>
             </fieldset>
-            <fieldset class="fat">
+            <fieldset class="fat" aria-label="Фильтр по жирности">
                 <legend>Жирность:</legend>
                 <div>
                   <label for="0_percent_fat">
@@ -145,7 +147,7 @@
                   </label>
                 </div>
             </fieldset>
-            <fieldset class="toppings">
+            <fieldset class="toppings" aria-label="Фильтр по наполнителям">
                 <legend>Наполнители:</legend>
                 <div>
                   <label for="chocolate_topping">
@@ -216,7 +218,7 @@
               <img src="img/catalog-4.png" width="267" height="267" alt="Сливочное крем-брюле с карамельной подливкой" />
               <p>415 &#8381;<span>/кг</span></p>
               <figcaption>
-                Сливочное крем-брюле с карамельной подливкой
+                Сливочное крем-брюле<br> с карамельной подливкой
               </figcaption>
             </figure>
               <a class="button" href="#">Быстрый просмотр</a>
@@ -226,7 +228,7 @@
               <img src="img/catalog-5.png" width="267" height="267" alt="Сливочное мороженое с брусничным джемом" />
               <p>325 &#8381;<span>/кг</span></p>
               <figcaption>
-                Сливочное с брусничным джемом
+                Сливочное с брусничным<br> джемом
               </figcaption>
             </figure>
               <a class="button" href="#">Быстрый просмотр</a>
@@ -266,7 +268,7 @@
               <img src="img/catalog-9.png" width="267" height="267" alt="Сливочно-ванильное мороженое с кусочками шоколада" />
               <p>440 &#8381;<span>/кг</span></p>
               <figcaption>
-                Сливочно-ванильное с кусочками шоколада
+                Сливочно-ванильное<br> с кусочками шоколада
               </figcaption>
             </figure>
               <a class="button" href="#">Быстрый просмотр</a>
@@ -304,13 +306,13 @@
         </section>
 
         <ul class="pagination" aria-label="Пагинация">
-          <li><a class="pagination-item" title="Вы на первой странице каталога"></a></li>
+          <li><a class="pagination-item" title="Вы на первой странице каталога" aria-label="На одну страницу каталога назад"></a></li>
           <li><a class="pagination-item pagination-current" title="Вы на первой странице каталога">1</a></li>
           <li><a class="pagination-item" href="#">2</a></li>
           <li><a class="pagination-item" href="#">3</a></li>
           <li><a class="pagination-item" href="#">4</a></li>
           <li><a class="pagination-item" href="#">5</a></li>
-          <li><a class="pagination-item" href="#"></a></li>
+          <li><a class="pagination-item" href="#" title="Следующая страница каталога" aria-label="На одну страницу каталога вперед"></a></li>
         </ul>
       </div>
     </main>
@@ -345,6 +347,6 @@
         </div>
       </div>
     </footer>
-    <script src="scripts/scripts.js"></script>
+    <script src="scripts/scripts-minified.js"></script>
   </body>
 </html>
