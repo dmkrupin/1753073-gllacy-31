@@ -40,10 +40,8 @@
             <li class="user-navigation-item search">
               <a class="search-button" href="#">Поиск</a>
               <div class="search-container" aria-label="Поиск">
-                <form class="search-field">
-                  <label>
-                    <input type="text" name="search" class="input" placeholder="Крем-брюле" aria-label="Поиск по сайту">
-                  </label>
+                <form class="search-field" aria-label="Форма поиска">
+                  <input type="text" name="search" class="input" placeholder="Крем-брюле" aria-label="Поле поиска по сайту">
                 </form>
               </div>
             </li>
@@ -103,10 +101,10 @@
         <h1 class="catalog-page">Сливочное мороженое</h1>
         <section aria-label="Управление каталогом">
           <form class="catalog-filter" action="https://echo.htmlacademy.ru" method="get" aria-label="Фильтры каталога">
-            <fieldset class="sort" aria-label="Сортировка">
+            <fieldset class="sort" aria-label="Сортировка каталога">
                 <legend>Сортировка:</legend>
                 <div class="sort-box">
-                  <select name="sorttype" class="sort-input">
+                  <select name="sorttype" class="sort-input" aria-label="Список сортировки каталога">
                     <option value="popular">по популярности</option>
                     <option value="cheap">сначала недорогие</option>
                     <option value="pricey">сначала дорогие</option>
