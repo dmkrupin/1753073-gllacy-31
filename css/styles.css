@@ -115,6 +115,7 @@
   width: 1146px;
   margin: 0 auto;
   padding: 0 10px;
+  position: relative;
 }
 .input {
   height: 44px;
@@ -794,25 +795,25 @@
 }
 
 .location {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: min(calc((1146px - 100vw) / 2), 0px);
-  margin-right: min(calc((1146px - 100vw) / 2), 0px);
+  margin: 0;
   padding: 0;
   position: relative;
+  width: 100%;
+  height: 430px;
 }
 .location > iframe {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
   padding: 0;
   border: 0;
-  vertical-align: center;
+  vertical-align: middle;
   width: 100%;
 }
 .location-address {
   position: absolute;
-  top: 62px;
-  right: max(calc((100vw - 1146px) / 2), 0px);
+  top: -370px;
+  z-index: 1;
+  right: 10px;
+
   width: 303px;
   height: 306px;
   box-sizing: border-box;
